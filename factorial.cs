@@ -1,9 +1,7 @@
 using System;
 
 /*
-ΠΑΝΑΓΙΩΤΗΣ ΠΡΑΤΤΗΣ Π15120 Εργασία 1
-δημιουργεία προγράμματος που υλοποιεί τον υπολογισμό του 
-παραγοντικού με χρήση των while, for και do-while loops
+Author Παναγιώτης Πράττης/Panagiotis Prattis
 */
 
 namespace firstexercise
@@ -13,14 +11,14 @@ namespace firstexercise
 		
 		static void Main(string[] args)
 		{
-			//στην μέθοδο Main δημιουργω τα αντικείμενα των άλλων τάξεων ώστε 
-			//για 3 διαφορετικές τιμές να υπολογιστεί το παραγοντικό 
+			//create objects of other classes
+			//and three variables to calculate factorial
+			//with three different ways
 			long num1;
 			long num2;
 			long num3;
-			//αρχικά για κάθε τιμή καλώ την συνάρτηση validate 
-			//της τάξης userinputvalidation ώστε να ειναι έγκυρη η τιμή
-			//και μετά καλώ τις συναρτήσεις calculate για το κάθε είδος επανάληψης
+			//for each value I call the fanction validate
+			//of the class userinputvalidation to check if value is valid
 			userinputvalidation v = new userinputvalidation();
 			Console.WriteLine("Let's calculate a factorial using the for loop");
 			num1 = v.validate();
@@ -47,24 +45,23 @@ namespace firstexercise
 	
 	public class userinputvalidation
 	{
-			//Σε αυτο το πρόγραμμα χρησιμοποιώ integer τύπου Int64 δηλαδή long ώστε να μπορεί
-			//το πρόγραμμα να υπολογίζει όσο το δυνατόν μεγαλύτερα παραγοντικά
-			//αν το factorial είναι πέρα από τα όρια το αποτέλεσμα βγαίνει 0
+			//I use integer type Int64 which is called long
+			//in order to calculate bigger factorials 
+			//if the result is bigger than the max long value, I output 0
 			
-			//αν χρησιμοποιούσα double θα υπολογίζονταν τα παραγοντικά και πιο μεγάλων αριθμών
-			//όμως το παραγοντικό έχει νόημα μόνο για φυσικούς-integers και όχι και για πραγματικούς-double
+			//I could use double to calculate even bigger factorials
+			//but factorial concernsonly natural numbers / integers and not real numbers / double
 			public long validate()
 			{
 				
-				//θα χρειαστώ έναν integer για να κάνω την σύγκριση και τον έλεγχο αν μετατρέπεται
-				//το input σε long, αν όχι τότε ξαναζητάω από τον χρήστη να δώσει αριθμό
+				//I will need an integer to check and compare if input can be converted to long
 				Console.WriteLine("Give a number to calculate its factorial");
 				long parsedValue, n=0;
 				bool condition = false;
 				while(condition==false)
 				{
-					//αρχικά με την μέθοδο TryPrse ελέγχουμε αν μπορεί το input του χρήστη
-					//να μετατραπεί σε integer και μετά έλεγχος να μην είναι αρνητικός
+					//with TryPrse check if input can be converted to long
+					//and then if input is  not negative
 					string input = Console.ReadLine();
 					if (Int64.TryParse(input, out parsedValue) == true)
 					{
@@ -87,7 +84,7 @@ namespace firstexercise
 				return n;
 			}
 	}
-	//παραγοντικό τύπος : n! = 1*2*...*(n-1)*n , n>=0 με 0!=1
+	//factorial formula : n! = 1*2*...*(n-1)*n , with n>=0 and 0!=1
 	public class forfactorial
 	{
 		public long forcalculate(long n)
@@ -124,9 +121,6 @@ namespace firstexercise
 			{
 				long f=1;
 				long x = n;
-				//η διαφορά με τα άλλα loops εδώ είναι οτι αν δώσει ο χρήστης 0 δεν θα γίνει αρχικά
-				//έλεγχος και το παραγοντικό θα βγει 0 που ειναι λάθος
-				//επιλέγω λοιπόν να κάνω αρχικά έλεγχο και για το 0 και για το 1 που έχουν ίδιο αποτέλεσμα
 				if (n==1 || n ==0)
 				{
 					Console.WriteLine("The factorial using the do-while loop is "+ n +"! = 1");
