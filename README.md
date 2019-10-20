@@ -12,7 +12,7 @@ and is one of a few C# programms neccessary to pass the class_
 
 > #### About this project
 >
-> - The comments to make the code understandable, are within the .py archive
+> - The comments to make the code understandable, are within the .cs archive
 > - This repository was created to show the variety of the work I did and experience I gained as a student
 >
 
